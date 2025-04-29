@@ -48,9 +48,9 @@ def get_distance(origin, goal):
     locator = Nominatim(user_agent="a_estrella_DAMD")
     city1 = cities_mx[origin]
     city2 = cities_mx[goal]
-    coordenates1 = locator.geocode(city1)
-    time.sleep(1)
-    coordenates2 = locator.geocode(city2)
+    coordenates1 = locator.geocode(city1, timeout=5)
+    time.sleep(2)
+    coordenates2 = locator.geocode(city2, timeout=5)
 
     if city1 and city2:
         location1 = (coordenates1.latitude, coordenates1.longitude)
